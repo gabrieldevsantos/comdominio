@@ -1,4 +1,4 @@
-# comdominio
-ComDominio
+# comdomino
+Projeto Comdomino
 
 IDE Eclipse
