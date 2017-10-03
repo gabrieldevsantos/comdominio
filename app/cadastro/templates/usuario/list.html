@@ -1,0 +1,47 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title  pull-left"><i class="glyphicon glyphicon-user" style="font-size:20px;width:30px;"></i> Usuário</h3>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+            <input type="text" class="form-control" ng-model="FiltroTabela" placeholder="Buscar..." id="inputGroup" />
+            <span class="input-group-btn input-space">
+               <a href="#!/usuario/edit/0"><button type="button" class="btn btn-success" id="btn_novo"><span class="btn-label"><i class="glyphicon glyphicon-plus"></i></span>            Novo</button>
+            </a>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="panel-body">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="column_media column_left">Nome</th>
+                    <th class="column_pequena column_left">CPF</th>
+                    <th class="column_media column_left">E-mail</th>
+                    <th class="column_pequena column_center">Código</th>
+                    <th class="column_pequena column_center">Ativo</th>
+                    <!--  <th class="column_media column_left">Observação</th>-->
+                    <th class="column_media column_center">Ações</th>
+                </tr>
+                </t head>
+                <tbody class="row_itens_position">
+                    <tr ng-repeat="dadosUsuario in usuario.listar()">
+                        <td class="column_media   column_left">{{dadosUsuario.nome}}</td>
+                        <td class="column_pequena   column_left">{{dadosUsuario.cpf}}</td>
+                        <td class="column_media   column_left">{{dadosUsuario.email}}</td>
+                        <td class="column_pequena   column_center">{{dadosUsuario.codigo}}</td>
+                        <td class="column_pequena column_center"><span class="glyphicon" ng-class="{'glyphicon-ok':dadosUsuario.ativo == true, 'glyphicon-remove': dadosUsuario.ativo == false}"
+                                ng-style="{ 'color' : (dadosUsuario.ativo == true) ? 'green' : 'red' }"></span>
+                            <!-- <td class="column_media   column_left">{{dadosUsuario.observacao}}</td> -->
+                            <td class="column_media   column_center">
+                                <a href="#!/usuario/edit/{{dadosUsuario.id}}" type="button" class="btn btn-default btn-xs">Editar <span class="glyphicon glyphicon-pencil"></span></a>
+                                <a href="#!/usuario/delete/{{dadosUsuario.id}}" type="button" class="btn btn-default btn-xs">Excluir <span class="glyphicon glyphicon-trash"></span></a>
+                                <a href="#!/usuario/view/{{dadosUsuario.id}}" type="button" class="btn btn-default btn-xs">Detalhes <span class="glyphicon glyphicon-info-sign"></span></a>
+                            </td>
+                    </tr>
+                </tbody>
+        </table>
+    </div>
+</div>

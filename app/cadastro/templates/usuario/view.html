@@ -1,0 +1,54 @@
+<div class="panel panel-default" ng-init="usuario.Recuperar()">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-user" style="font-size:20px;width:30px;"></i> Dados usuário</h3>
+    </div>
+    <div class="panel-body">
+        <div class="container center_div">
+            <form name="usuarioForm">
+                <div class="form-group">
+                    <label for="nomer">Nome:</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Informe do usuário... " name="nome" ng-model="usuario.dadosUsuario.nome"
+                        ng-minlength="5" ng-maxlength="200" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" class="form-control" id="cpf" placeholder="Informe o CPF... " name="cpf" ng-model="usuario.dadosUsuario.cpf"
+                        disabled>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="text" class="form-control" id="email" placeholder="Informe o e-mail... " name="email" ng-model="usuario.dadosUsuario.email" disabled>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="codigo">Código:</label>
+                    <input type="text" class="form-control" id="codigo" placeholder="Informe a descrição do tipo de veículo... " name="codigo" ng-model="usuario.dadosUsuario.codigo" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="observacao">Observação:</label>
+                    <input type="text" class="form-control" id="observacao" placeholder="Informe a observação... " name="descricao" ng-model="usuario.dadosUsuario.observacao" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="ativo" class="radio_muito_pequena">Ativo :</label>
+                    <label class="radio-inline">
+                    <input type="radio" name="status_positivo_ativo" ng-model="usuario.dadosUsuario.ativo" ng-value="true" disabled>Sim</label>
+                    <label class="radio-inline">
+                    <input type="radio" name="status_positivo_ativo" ng-model="usuario.dadosUsuario.ativo" ng-value="false" disabled>Não</label>
+                </div>
+                <hr/>
+
+                <div class="form-group">
+                    <div class="text-right">
+                        <a href="#!/usuario"><button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-arrow-left"></span>  Voltar </button></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

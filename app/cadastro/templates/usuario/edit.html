@@ -1,0 +1,89 @@
+
+<div class="panel panel-default" ng-init="usuario.Recuperar()">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-user" style="font-size:20px;width:30px;"></i> Dados usuário</h3>
+    </div>
+    <div class="panel-body">
+        <div class="container center_div">
+            <form name="usuarioForm">
+                <div class="form-group">
+                    <label for="nomer">Nome:</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Informe do usuário... " name="nome" ng-model="usuario.dadosUsuario.nome"
+                        ng-minlength="5" ng-maxlength="200" required>
+                    <div class="alert alert-warning" ng-show="usuarioForm.nome.$error.minlength">
+                        <strong>Atenção!</strong> o nome está muito curto.
+                    </div>
+                    <div class="alert alert-warning" ng-show="usuarioForm.nome.$error.maxlength">
+                        <strong>Atenção!</strong> o nome está muito grande.
+                    </div>
+                    <div class="alert alert-warning" ng-show="usuarioForm.nome.$dirty && usuarioForm.nome.$error.required">
+                        <strong>Atenção!</strong> <span>informe o nome !</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" class="form-control" id="cpf" placeholder="Informe o CPF... " name="cpf" ng-model="usuario.dadosUsuario.cpf"
+                        required>
+                    <div class="alert alert-warning" ng-show="usuarioForm.cpf.$dirty && usuarioForm.cpf.$error.required">
+                        <strong>Atenção!</strong> <span>informe o CPF !</span>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="text" class="form-control" id="email" placeholder="Informe o e-mail... " name="email" ng-model="usuario.dadosUsuario.email"
+                        required>
+
+                    <div class="alert alert-warning" ng-show="usuarioForm.email.$dirty && usuarioForm.email.$error.required">
+                        <strong>Atenção!</strong> <span>informe a E-mail !</span>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="codigo">Código:</label>
+                    <input type="text" class="form-control" id="codigo" placeholder="Informe o código... " name="codigo" ng-model="usuario.dadosUsuario.codigo"
+                        required>
+                    <div class="alert alert-warning" ng-show="usuarioForm.codigo.$dirty && usuarioForm.codigo.$error.required">
+                        <strong>Atenção!</strong> <span>informe o código !</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="observacao">Observação:</label>
+                    <input type="text" class="form-control" id="observacao" placeholder="Informe a observação... " name="descricao" ng-model="usuario.dadosUsuario.observacao"
+                        ng-minlength="5" ng-maxlength="200" required>
+                    <div class="alert alert-warning" ng-show="usuarioForm.observacao.$error.minlength">
+                        <strong>Atenção!</strong> a observacao está muito curta.
+                    </div>
+                    <div class="alert alert-warning" ng-show="usuarioForm.observacao.$error.maxlength">
+                        <strong>Atenção!</strong> a observacao está muito grande.
+                    </div>
+                    <div class="alert alert-warning" ng-show="usuarioForm.observacao.$dirty && usuarioForm.observacao.$error.required">
+                        <strong>Atenção!</strong> <span>informe a observacao !</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ativo" class="radio_muito_pequena">Ativo :</label>
+                    <label class="radio-inline">
+                    <input type="radio" name="status_positivo_ativo" ng-model="usuario.dadosUsuario.ativo" ng-value="true" required>Sim</label>
+                    <label class="radio-inline">
+                    <input type="radio" name="status_positivo_ativo" ng-model="usuario.dadosUsuario.ativo" ng-value="false" required>Não</label>
+                </div>
+                <hr/>
+                <div class="form-group">
+                    <div class="text-right">
+                        <a href="#!/usuario/" type="button" class="btn btn-danger">Cancelar <span class="glyphicon glyphicon-remove"></span></a>
+                        <span style="width:3em;"> </span>
+                        <button type="submit" class="btn btn-primary" ng-click="usuario.Salvar()" ng-disabled="usuarioForm.$invalid" data-toggle="tooltip"
+                            data-placement="top" title="Preencha todos os campos corretamente para realizar o cadastro!">Salvar <span class="glyphicon glyphicon-glyphicon-floppy-saved"></span></button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
