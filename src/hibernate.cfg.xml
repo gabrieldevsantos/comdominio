@@ -23,33 +23,28 @@
 		<property name="hibernate.connection.pool_size">50</property> <!-- Poll de conexão -->
 
 
-	    <mapping class="curso.angular.model.Estados" />
-	    <mapping class="curso.angular.model.Cidades" />
-		<mapping class="curso.angular.model.Cliente" />
-		<mapping class="curso.angular.model.Fornecedor" />
-		<mapping class="curso.angular.model.Livro" />
-		<mapping class="curso.angular.model.Pedido" />
-		<mapping class="curso.angular.model.AgendamentoLazer" />
-		<mapping class="curso.angular.model.AreaLazer" />
-		<mapping class="curso.angular.model.Condominio" />
-		<mapping class="curso.angular.model.Financeiro" />
-		<mapping class="curso.angular.model.Grupo" />
-		<mapping class="curso.angular.model.ItemLancamento" />
-		<mapping class="curso.angular.model.Lancamento" />
-		<mapping class="curso.angular.model.LancamentoFinanceiro" />
-		<mapping class="curso.angular.model.Mensagem" />
-		<mapping class="curso.angular.model.Notificacao" />
-		<mapping class="curso.angular.model.Pessoa" />
-		<mapping class="curso.angular.model.PessoaCondominio" />
-		<mapping class="curso.angular.model.Servico" />
-		<mapping class="curso.angular.model.Terceiro" />
-		<mapping class="curso.angular.model.TipoAreaLazer" />
-		<mapping class="curso.angular.model.TipoLancamento" />
-		<mapping class="curso.angular.model.TipoPessoa" />
-		<mapping class="curso.angular.model.TipoServico" />
-		<mapping class="curso.angular.model.TipoUnidade" />
-		<mapping class="curso.angular.model.Unidade" />
-		<mapping class="curso.angular.model.Vagasdisponivel" />
+	   
+		<mapping class="com.comdomino.model.AgendamentoLazer" />
+		<mapping class="com.comdomino.model.AreaLazer" />
+		<mapping class="com.comdomino.model.Condominio" />
+		<mapping class="com.comdomino.model.Financeiro" />
+		<mapping class="com.comdomino.model.Grupo" />
+		<mapping class="com.comdomino.model.ItemLancamento" />
+		<mapping class="com.comdomino.model.Lancamento" />
+		<mapping class="com.comdomino.model.LancamentoFinanceiro" />
+		<mapping class="com.comdomino.model.Mensagem" />
+		<mapping class="com.comdomino.model.Notificacao" />
+		<mapping class="com.comdomino.model.Pessoa" />
+		<mapping class="com.comdomino.model.PessoaCondominio" />
+		<mapping class="com.comdomino.model.Servico" />
+		<mapping class="com.comdomino.model.Terceiro" />
+		<mapping class="com.comdomino.model.TipoAreaLazer" />
+		<mapping class="com.comdomino.model.TipoLancamento" />
+		<mapping class="com.comdomino.model.TipoPessoa" />
+		<mapping class="com.comdomino.model.TipoServico" />
+		<mapping class="com.comdomino.model.TipoUnidade" />
+		<mapping class="com.comdomino.model.Unidade" />
+		<mapping class="com.comdomino.model.Vagasdisponivel" />
 		
 		
 		

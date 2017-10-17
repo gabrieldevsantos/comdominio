@@ -19,8 +19,8 @@
 	 
 	<mvc:resources location="/resources/" mapping="/resources/**" cache-period="5000" />
 
-	<context:component-scan base-package="curso.angular.dao" />
-	<context:component-scan base-package="curso.angular.controller" />
+	<context:component-scan base-package="com.comdomino.dao" />
+	<context:component-scan base-package="com.comdomino.controller" />
 
 
 	<!-- Data Source -->
@@ -31,70 +31,152 @@
 	</bean>
 	
 	
-	<!-- bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate" lazy-init="false"> 
-    	<property name="dataSource" ref="springDataSource"/> 
-    	<property name="baselineOnMigrate" value="true"/>  
-    	<property name="table" value="version"/> 
-    	<property name="sqlMigrationPrefix" value="v"/> 
-    	<property name="sqlMigrationSeparator" value="_"/>
-    	<property name="encoding" value="ISO-8859-1"/> 
-    	<property name="validateOnMigrate" value="true"/>
-	</bean-->
-	
-	
 	 <bean id="transactionManager" name="transactionManager"   
          class="org.springframework.jdbc.datasource.DataSourceTransactionManager" lazy-init="false">
          <property name="dataSource" ref="springDataSource"/>
      </bean>  
       
-      <bean id="clienteController" name="clienteController"
-        class="curso.angular.controller.ClienteController">
-      		<constructor-arg value="curso.angular.model.Cliente"/>
-      </bean>
-      
-      <bean id="pessoaController" name="pessoaController"
-        class="curso.angular.controller.PessoaController">
-      		<constructor-arg value="curso.angular.model.Pessoa"/>
-      </bean>
+    
+        
+    
+    
+    
+   
+     <!-- Declarar controllers aqui  
+   
+     <bean id="pessoaController" name="pessoaController"
+       class="com.comdomino.controller.PessoaController">
+     		<constructor-arg value="com.comdomino.model.Pessoa"/>
+     </bean>
+
+  	<bean id="tipoPessoaController" name="tipoPessoaController"
+       class="com.comdomino.controller.TipoPessoaController">
+     		<constructor-arg value="com.comdomino.model.TipoPessoa"/>
+     </bean>
 
 
-	<bean id="estadosController" name="estadosController"
-		class="curso.angular.controller.EstadosController">
-		<constructor-arg value="curso.angular.model.Estados" />
-	</bean>
+	<bean id="agendamentoLazerController" name="agendamentoLazerController"
+        class="com.comdomino.controller.AgendamentoLazerController">
+      		<constructor-arg value="com.comdomino.model.AgendamentoLazer"/>
+     </bean-->
 
-	<bean id="cidadesController" name="cidadesController"
-		class="curso.angular.controller.CidadesController">
-		<constructor-arg value="curso.angular.model.Cidades" />
+
+<!-- Declarar controllers aqui  -->
+   
+	<bean id="agendamentoLazerController" name="agendamentoLazerController"
+		class="com.comdomino.controller.AgendamentoLazerController">
+			<constructor-arg value="com.comdomino.model.AgendamentoLazer"/>
 	</bean>
 	
-	<bean id="fornecedorController" name="fornecedorController"
-		class="curso.angular.controller.FornecedorController">
-		<constructor-arg value="curso.angular.model.Fornecedor" />
-	</bean>
 	
-	<bean id="livroController" name="livroController"
-		class="curso.angular.controller.LivroController">
-		<constructor-arg value="curso.angular.model.Livro" />
-	</bean>
+    <bean id="areaLazerController" name="areaLazerController"
+		class="com.comdomino.controller.AreaLazerController">
+			<constructor-arg value="com.comdomino.model.AreaLazer"/>
+    </bean>
+    
+    <bean id="condominioController" name="condominioController"
+		class="com.comdomino.controller.CondominioController">
+			<constructor-arg value="com.comdomino.model.Condominio"/>
+    </bean>
+    
+    <bean id="financeiroController" name="financeiroController"
+		class="com.comdomino.controller.FinanceiroController">
+			<constructor-arg value="com.comdomino.model.Financeiro"/>
+    </bean>
+    
+    <bean id="grupoController" name="grupoController"
+		class="com.comdomino.controller.GrupoController">
+			<constructor-arg value="com.comdomino.model.Grupo"/>
+    </bean>
+    
+    <bean id="itemLancamentoController" name="itemLancamentoController"
+		class="com.comdomino.controller.ItemLancamentoController">
+			<constructor-arg value="com.comdomino.model.ItemLancamento"/>
+    </bean>
+    
+    <bean id="lancamentoController" name="lancamentoController"
+		class="com.comdomino.controller.LancamentoController">
+			<constructor-arg value="com.comdomino.model.Lancamento"/>
+    </bean>
+    
+    <bean id="lancamentoFinanceiroController" name="lancamentoFinanceiroController"
+		class="com.comdomino.controller.LancamentoFinanceiroController">
+			<constructor-arg value="com.comdomino.model.LancamentoFinanceiro"/>
+    </bean>
+    
+    <bean id="mensagemController" name="mensagemController"
+		class="com.comdomino.controller.MensagemController">
+			<constructor-arg value="com.comdomino.model.Mensagem"/>
+    </bean>
+    
+    <bean id="notificacaoController" name="notificacaoController"
+		class="com.comdomino.controller.NotificacaoController">
+			<constructor-arg value="com.comdomino.model.Notificacao"/>
+    </bean>
+    
+    <bean id="pessoaCondominioController" name="pessoaCondominioController"
+		class="com.comdomino.controller.PessoaCondominioController">
+			<constructor-arg value="com.comdomino.model.PessoaCondominio"/>
+    </bean>
+    
+    <bean id="pessoaController" name="pessoaController"
+		class="com.comdomino.controller.PessoaController">
+			<constructor-arg value="com.comdomino.model.Pessoa"/>
+    </bean>
+    
+    <bean id="servicoController" name="servicoController"
+		class="com.comdomino.controller.ServicoController">
+			<constructor-arg value="com.comdomino.model.Servico"/>
+    </bean>
+    
+    <bean id="terceiroController" name="terceiroController"
+		class="com.comdomino.controller.TerceiroController">
+			<constructor-arg value="com.comdomino.model.Terceiro"/>
+    </bean>
+    
+    
+    <bean id="tipoAreaLazerController" name="tipoAreaLazerController"
+		class="com.comdomino.controller.TipoAreaLazerController">
+			<constructor-arg value="com.comdomino.model.TipoAreaLazer"/>
+    </bean>
+    
+    <bean id="tipoLancamentoController" name="tipoLancamentoController"
+		class="com.comdomino.controller.TipoLancamentoController">
+			<constructor-arg value="com.comdomino.model.TipoLancamento"/>
+    </bean>
+    
+
+	<bean id="tipoPessoaController" name="tipoPessoaController"
+		class="com.comdomino.controller.TipoPessoaController">
+			<constructor-arg value="com.comdomino.model.TipoPessoa"/>
+    </bean>
+
+	<bean id="tipoServicoController" name="tipoServicoController"
+		class="com.comdomino.controller.TipoServicoController">
+			<constructor-arg value="com.comdomino.model.TipoServico"/>
+    </bean>
+    
+    <bean id="tipoUnidadeController" name="tipoUnidadeController"
+		class="com.comdomino.controller.TipoUnidadeController">
+			<constructor-arg value="com.comdomino.model.TipoUnidade"/>
+    </bean>
+    
+    <bean id="unidadeController" name="unidadeController"
+		class="com.comdomino.controller.UnidadeController">
+			<constructor-arg value="com.comdomino.model.Unidade"/>
+    </bean>
+    
+    <bean id="vagasdisponivelController" name="vagasdisponivelController"
+		class="com.comdomino.controller.VagasdisponivelController">
+			<constructor-arg value="com.comdomino.model.Vagasdisponivel"/>
+    </bean>
 	
-	<bean id="itemPedidoController" name="itemPedidoController"
-		class="curso.angular.controller.ItemPedidoController">
-		<constructor-arg value="curso.angular.model.ItemPedido" />
-	</bean>
 	
-	<bean id="pedidoController" name="pedidoController"
-		class="curso.angular.controller.PedidoController">
-		<constructor-arg value="curso.angular.model.Pedido" />
-	</bean>
-	
-	<bean id="fileDownloadController" name="fileDownloadController"
-		class="curso.angular.controller.FileDownloadController">
-	</bean>
-	
-	<bean id="reportUtil" name="reportUtil"
-		class="curso.angular.controller.ReportUtil">
-	</bean>
+
+
+
+	<!-- Declarar controllers aqui  -->
+
       
 </beans>
 

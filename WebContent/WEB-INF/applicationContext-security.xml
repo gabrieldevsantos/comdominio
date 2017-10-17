@@ -12,21 +12,91 @@
 		access-denied-page="/negado/acesso-negado.html"
 		use-expressions="true">
 
+
+
+		<!-- Declarar Paginas aqui -->
+		
 		<intercept-url pattern="/publico/**" access="permitAll" />
 		
-		
-		<intercept-url pattern="/pessoa/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/>
-		
-		<intercept-url pattern="/cliente/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/>
-		<intercept-url pattern="/fornecedor/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/>
-		<intercept-url pattern="/grafico/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/>
-		<intercept-url pattern="/livro/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/>
-		<intercept-url pattern="/loja/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/>
 		<intercept-url pattern="/inicial.html" access="isAuthenticated() and hasAnyRole('ADMIN')"/>
 		
-		 
+		<intercept-url pattern="/sindico/**" access="isAuthenticated() and hasAnyRole('SINDICO')"/>
 		
-		<form-login login-page="/publico/login.html"
+		<intercept-url pattern="/morador/**" access="isAuthenticated() and hasAnyRole('MORADOR')"/>
+		
+		<!-- Declarar Paginas aqui -->
+		
+		
+		
+		
+		
+		
+		<!-- Rotas WS -->
+		
+		<intercept-url pattern="/agendamentolazer/**" access="permitAll" />
+		<!-- intercept-url pattern="/agendamentolazer/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		<intercept-url pattern="/arealazer/**" access="permitAll" />
+		<!-- intercept-url pattern="/arealazer/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		<intercept-url pattern="/condominio/**" access="permitAll" />
+		<!-- intercept-url pattern="/condominio/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		<intercept-url pattern="/financeiro/**" access="permitAll" />
+		<!-- intercept-url pattern="/financeiro/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		<intercept-url pattern="/grupo/**" access="permitAll" />
+		<!-- intercept-url pattern="/grupo/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		<intercept-url pattern="/itemlancamento/**" access="permitAll" />
+		<!-- intercept-url pattern="/itemlancamento/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		<intercept-url pattern="/lancamentofinanceiro/**" access="permitAll" />
+		<!-- intercept-url pattern="/lancamentofinanceiro/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		<intercept-url pattern="/mensagem/**" access="permitAll" />
+		<!-- intercept-url pattern="/mensagem/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		<intercept-url pattern="/notificacao/**" access="permitAll" />
+		<!-- intercept-url pattern="/notificacao/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		<intercept-url pattern="/pessoacondominio/**" access="permitAll" />
+		<!-- intercept-url pattern="/pessoacondominio/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		<intercept-url pattern="/pessoa/**" access="permitAll" />
+		<!-- intercept-url pattern="/pessoa/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		<intercept-url pattern="/servico/**" access="permitAll" />
+		<!-- intercept-url pattern="/servico/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		<intercept-url pattern="/terceiro/**" access="permitAll" />
+		<!-- intercept-url pattern="/terceiro/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		<intercept-url pattern="/tipoarealazer/**" access="permitAll" />
+		<!-- intercept-url pattern="/tipoarealazer/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+					
+		<intercept-url pattern="/tipopessoa/**" access="permitAll" />
+		<!-- intercept-url pattern="/tipopessoa/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		<intercept-url pattern="/tiposervico/**" access="permitAll" />
+		<!-- intercept-url pattern="/tiposervico/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		<intercept-url pattern="/tipounidade/**" access="permitAll" />
+		<!-- intercept-url pattern="/tipounidade/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		<intercept-url pattern="/unidade/**" access="permitAll" />
+		<!-- intercept-url pattern="/unidade/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		<intercept-url pattern="/vagasdisponivel/**" access="permitAll" />
+		<!-- intercept-url pattern="/vagasdisponivel/**" access="isAuthenticated() and hasAnyRole('ADMIN')"/-->
+		
+		
+		<!-- Fim Rotas WS -->
+		
+		
+		
+		
+		 <form-login login-page="/publico/login.html"
 			always-use-default-target="true" default-target-url="/inicial.html"
 			authentication-failure-url="/publico/login.html?login_error=1" />
 

@@ -1,7 +1,7 @@
-<html ng-app="loja">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Loja</title>
+<title>Comdomino</title>
 
 <meta charset="ISO-8859-1">
 
@@ -43,10 +43,6 @@
 <link href="resources/css/themify-icons.css" rel="stylesheet">
 <link href="resources/css/jquery-ui.css" rel="stylesheet">
 
-<script type="text/javascript" src="resources/js/app.js"></script>
-
-<script type="text/javascript" src="resources/js/lojaController.js"></script>
-<script type="text/javascript" src="resources/js/livroController.js"></script>
 
 
 <style type="text/css">
@@ -67,74 +63,13 @@
 </head>
 
 <body id="corpo">
-
-	<div class="wrapper">
-		<div class="sidebar" data-background-color="white"
-			data-active-color="danger">
-
-			<div class="sidebar-wrapper">
-
-				<ul class="nav">
-					<li class="active"><a href="#clientelist">
-							<p>Clientes</p>
-					</a></li>
-					<li class="active"><a href="#fornecedorlist">
-							<p>Fornecedor</p>
-					</a></li>
-					<li class="active"><a href="#livrolist">
-							<p>Livro</p>
-					</a></li>
-					<li class="active"><a href="#/loja/online">
-							<p>Loja de livro</p>
-					</a></li>
-					<li class="active"><a href="#/loja/pedidos">
-							<p>Pedidos</p>
-					</a></li>
-					
-					<li class="active"><a href="#/grafico/media_pedido">
-							<p>Média Pedido</p>
-					</a></li>
-				</ul>
-			</div>
-		</div>
-
-		<div class="main-panel">
-			<nav class="navbar navbar-default">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<a class="navbar-brand" href="#">Home</a>
-					</div>
-					<div class="collapse navbar-collapse">
-						<ul class="nav navbar-nav navbar-right">
-						
-							<li class="dropdown">
-							<a href="/" class="dropdown-toggle"
-								data-toggle="dropdown">
-									<p>Cadastros</p> <b class="caret"></b>
-							</a>
-								<ul class="dropdown-menu">
-									<li><a href="#/cliente/cadastro">Novo Cliente</a></li>
-									<li><a href="#/fornecedor/cadastro">Novo Fornecedor</a></li>
-									<li><a href="#/livro/cadastro">Novo Livro</a></li>
-									<li><a href="#/loja/online">Loja de Livros</a></li>
-									<li><a href="#/loja/pedidos">Pedidos</a></li>
-									<li><a href="#/grafico/media_pedido">Média de Livros</a></li>
-								</ul></li>
-							<li><a href="#/">
-									<p>Sair</p>
-							</a></li>
-						</ul>
-
-					</div>
-				</div>
 	
-			</nav>
+	
+	<h1> Login com sucesso!</h1>
+	<h3> Página de redirecionamento.. Sindico/Morador </h3>
+	
 
-			<div class="content" ng-view>
-			</div>
-			
-		</div>
-	</div>
+	
 </body>
 
 <script type="text/javascript">
@@ -148,10 +83,6 @@
             });
     	});
     
-    	$.get("livro/autenticar", function(data) {
-		    json = JSON.parse(data);
-		    permissao = json.permissao;
-		});
     	
 	</script>
 </html>

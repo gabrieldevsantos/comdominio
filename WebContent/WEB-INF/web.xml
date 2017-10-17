@@ -14,7 +14,7 @@
   </context-param>
   <filter>
     <filter-name>conexaoFilter</filter-name>
-    <filter-class>curso.angular.filter.FilterOpenSessionInView</filter-class>
+    <filter-class>com.comdomino.filter.FilterOpenSessionInView</filter-class>
   </filter>
   <filter>
     <filter-name>encoding-filter</filter-name>
@@ -41,7 +41,7 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   <listener>
-    <listener-class>curso.angular.listener.ContextLoaderListenerCaixakiUtils</listener-class>
+    <listener-class>com.comdomino.listener.ContextLoaderListenerCaixakiUtils</listener-class>
   </listener>
   <listener>
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
