@@ -6,15 +6,12 @@
 package com.comdomino.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import org.hibernate.annotations.ForeignKey;
 
 /**
@@ -28,8 +25,7 @@ public class LancamentoFinanceiro implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Temporal(TemporalType.DATE)
-    private Date dataLancamento;
+    private String dataLancamento;
     private String descricao;
     private Integer servicoPessoaServicoId;
     private Integer servicoPessoaPessoaId;
@@ -57,7 +53,7 @@ public class LancamentoFinanceiro implements Serializable {
         this.id = id;
     }
 
-    public LancamentoFinanceiro(Long id, Date dataLancamento, String descricao) {
+    public LancamentoFinanceiro(Long id, String dataLancamento, String descricao) {
         this.id = id;
         this.dataLancamento = dataLancamento;
         this.descricao = descricao;
@@ -71,11 +67,11 @@ public class LancamentoFinanceiro implements Serializable {
         this.id = id;
     }
 
-    public Date getDataLancamento() {
+    public String getDataLancamento() {
         return dataLancamento;
     }
 
-    public void setDataLancamento(Date dataLancamento) {
+    public void setDataLancamento(String dataLancamento) {
         this.dataLancamento = dataLancamento;
     }
 

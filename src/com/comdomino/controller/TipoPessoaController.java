@@ -3,6 +3,7 @@ package com.comdomino.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,7 @@ public class TipoPessoaController extends DaoImplementacao<TipoPessoa>
 		super(persistenceClass);
 	}
 	
+	@CrossOrigin
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "post", method = RequestMethod.POST)
 	@ResponseBody
@@ -30,11 +32,12 @@ public class TipoPessoaController extends DaoImplementacao<TipoPessoa>
 			throws Exception{
 		TipoPessoa objeto = new Gson().fromJson(jsonPost,
 				TipoPessoa.class);
-		System.out.println(jsonPost);
+		System.out.println(jsonPost);		
 		super.salvar(objeto);
 		return new ResponseEntity(HttpStatus.CREATED);
 	}
 	
+	@CrossOrigin
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "put", method = RequestMethod.PUT)
 	@ResponseBody
@@ -46,6 +49,7 @@ public class TipoPessoaController extends DaoImplementacao<TipoPessoa>
 		return new ResponseEntity(HttpStatus.CREATED);
 	}
 	
+	@CrossOrigin
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "postorput", method = RequestMethod.POST)
 	@ResponseBody
@@ -59,7 +63,7 @@ public class TipoPessoaController extends DaoImplementacao<TipoPessoa>
 		return new ResponseEntity(HttpStatus.CREATED);
 	}
 	
-	
+	@CrossOrigin
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@ResponseBody
 	public String listartodos()
@@ -69,6 +73,7 @@ public class TipoPessoaController extends DaoImplementacao<TipoPessoa>
 		return json;
 	}
 
+	@CrossOrigin
 	@RequestMapping(value = "list/{id}", method = RequestMethod.GET)
 	public @ResponseBody
 	String buscarTipoPessoa(@PathVariable("id") String id)
@@ -82,7 +87,7 @@ public class TipoPessoaController extends DaoImplementacao<TipoPessoa>
 		return json;
 	}
 	
-	
+	@CrossOrigin
 	@RequestMapping(value = "delete/{idTipoPessoa}", method = RequestMethod.DELETE)
 	public @ResponseBody
 	String deletar(@PathVariable("idTipoPessoa") String idTipoPessoa)

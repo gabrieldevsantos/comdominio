@@ -1,8 +1,11 @@
 package com.comdomino.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +26,7 @@ public class PessoaController extends DaoImplementacao<Pessoa>
 		super(persistenceClass);
 	}
 	
-	
+	@CrossOrigin
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "post", method = RequestMethod.POST)
 	@ResponseBody
@@ -32,10 +35,33 @@ public class PessoaController extends DaoImplementacao<Pessoa>
 		Pessoa objeto = new Gson().fromJson(jsonPost,
 				Pessoa.class);
 		System.out.println(jsonPost);
+		
+		/******************************
+		 * EXEMPLO DE QUERY NATIVA
+		 * ***************************/
+		/*
+		String sql = "SELECT * FROM freelancer where login = '"+objeto.getId()+"'";
+		@SuppressWarnings("unchecked")
+		List<Pessoa> results = this.sessionFactory.getCurrentSession().createSQLQuery(sql).addEntity("freelancer", Pessoa.class).list();
+				
+		//imprime lista de resultados
+		for (Object item : results) {
+			System.out.println(item.toString());
+		}
+		//verifica se encontrou resultados
+		if(results.isEmpty()){
+			super.salvarOuAtualizar(objeto);
+			return new ResponseEntity(HttpStatus.CREATED);
+		}else{
+			return new ResponseEntity(HttpStatus.EXPECTATION_FAILED);
+		}	
+		*/
+
 		super.salvar(objeto);
 		return new ResponseEntity(HttpStatus.CREATED);
 	}
 	
+	@CrossOrigin
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "put", method = RequestMethod.PUT)
 	@ResponseBody
@@ -47,6 +73,7 @@ public class PessoaController extends DaoImplementacao<Pessoa>
 		return new ResponseEntity(HttpStatus.CREATED);
 	}
 	
+	@CrossOrigin
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "postorput", method = RequestMethod.POST)
 	@ResponseBody
@@ -59,7 +86,7 @@ public class PessoaController extends DaoImplementacao<Pessoa>
 		return new ResponseEntity(HttpStatus.CREATED);
 	}
 	
-	
+	@CrossOrigin
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@ResponseBody
 	public String listartodos()
@@ -69,7 +96,7 @@ public class PessoaController extends DaoImplementacao<Pessoa>
 		return json;
 	}
 
-	
+	@CrossOrigin
 	@RequestMapping(value = "list/{id}", method = RequestMethod.GET)
 	public @ResponseBody
 	String buscar(@PathVariable("id") String id)
@@ -83,6 +110,7 @@ public class PessoaController extends DaoImplementacao<Pessoa>
 		return json;
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
 	public @ResponseBody
 	String deletar(@PathVariable("id") String id)
