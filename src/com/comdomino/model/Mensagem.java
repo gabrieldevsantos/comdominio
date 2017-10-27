@@ -6,15 +6,12 @@
 package com.comdomino.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import org.hibernate.annotations.ForeignKey;
 
 /**
@@ -29,9 +26,8 @@ public class Mensagem implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String titulo;
-    private String texto;
-    @Temporal(TemporalType.DATE)
-    private Date datacriacao;
+    private String texto;  
+    private String datacriacao;
 
     @ManyToOne(fetch = FetchType.EAGER)
 	@ForeignKey(name = "condominioid")
@@ -68,11 +64,11 @@ public class Mensagem implements Serializable {
         this.texto = texto;
     }
 
-    public Date getDatacriacao() {
+    public String getDatacriacao() {
         return datacriacao;
     }
 
-    public void setDatacriacao(Date datacriacao) {
+    public void setDatacriacao(String datacriacao) {
         this.datacriacao = datacriacao;
     }
 

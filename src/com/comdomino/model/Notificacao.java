@@ -6,15 +6,12 @@
 package com.comdomino.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import org.hibernate.annotations.ForeignKey;
 
 /**
@@ -30,8 +27,7 @@ public class Notificacao implements Serializable {
     private Long id;
     private String titulo;
     private String descricao;
-    @Temporal(TemporalType.DATE)
-    private Date data;
+    private String data;
     
     @ManyToOne(fetch = FetchType.EAGER)
 	@ForeignKey(name = "condominioid")
@@ -48,7 +44,7 @@ public class Notificacao implements Serializable {
         this.id = id;
     }
 
-    public Notificacao(Long id, String titulo, String descricao, Date data) {
+    public Notificacao(Long id, String titulo, String descricao, String data) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
@@ -79,11 +75,11 @@ public class Notificacao implements Serializable {
         this.descricao = descricao;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 

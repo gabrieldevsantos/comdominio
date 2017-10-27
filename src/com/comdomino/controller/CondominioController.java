@@ -3,6 +3,7 @@ package com.comdomino.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,7 @@ public class CondominioController extends DaoImplementacao<Condominio>
 		super(persistenceClass);
 	}
 	
-	
+	@CrossOrigin
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "post", method = RequestMethod.POST)
 	@ResponseBody
@@ -36,6 +37,7 @@ public class CondominioController extends DaoImplementacao<Condominio>
 		return new ResponseEntity(HttpStatus.CREATED);
 	}
 	
+	@CrossOrigin
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "put", method = RequestMethod.PUT)
 	@ResponseBody
@@ -47,6 +49,7 @@ public class CondominioController extends DaoImplementacao<Condominio>
 		return new ResponseEntity(HttpStatus.CREATED);
 	}
 	
+	@CrossOrigin
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "postorput", method = RequestMethod.POST)
 	@ResponseBody
@@ -59,7 +62,7 @@ public class CondominioController extends DaoImplementacao<Condominio>
 		return new ResponseEntity(HttpStatus.CREATED);
 	}
 	
-	
+	@CrossOrigin
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@ResponseBody
 	public String listartodos()
@@ -69,7 +72,7 @@ public class CondominioController extends DaoImplementacao<Condominio>
 		return json;
 	}
 
-	
+	@CrossOrigin
 	@RequestMapping(value = "list/{id}", method = RequestMethod.GET)
 	public @ResponseBody
 	String buscar(@PathVariable("id") String id)
@@ -83,6 +86,7 @@ public class CondominioController extends DaoImplementacao<Condominio>
 		return json;
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
 	public @ResponseBody
 	String deletar(@PathVariable("id") String id)

@@ -23,7 +23,7 @@ public abstract class DaoImplementacao<T> implements DaoInterface<T> {
 
 	private Class<T> persistenceClass;
 
-	private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+	protected SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
 	public DaoImplementacao(Class<T> persistenceClass) {
 		super();

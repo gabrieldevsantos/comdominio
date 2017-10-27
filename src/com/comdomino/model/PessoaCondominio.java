@@ -6,13 +6,10 @@
 package com.comdomino.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
@@ -25,11 +22,9 @@ public class PessoaCondominio implements Serializable {
     @EmbeddedId
     protected PessoaCondominioPK pessoaCondominioPK;
     
-    @Temporal(TemporalType.DATE)
-    private Date dataInicio;
+    private String dataInicio;
     
-    @Temporal(TemporalType.DATE)
-    private Date dataFim;
+    private String dataFim;
     
     @JoinColumn(name = "condominioid", referencedColumnName = "id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
@@ -58,19 +53,19 @@ public class PessoaCondominio implements Serializable {
         this.pessoaCondominioPK = pessoaCondominioPK;
     }
 
-    public Date getDataInicio() {
+    public String getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(String dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public Date getDataFim() {
+    public String getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(Date dataFim) {
+    public void setDataFim(String dataFim) {
         this.dataFim = dataFim;
     }
 

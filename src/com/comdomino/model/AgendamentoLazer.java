@@ -1,15 +1,12 @@
 package com.comdomino.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import org.hibernate.annotations.ForeignKey;
 
 /**
@@ -23,14 +20,11 @@ public class AgendamentoLazer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date inicio;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fim;
+    private String inicio;
+    private String fim;
     private String evento;
     private Boolean aprovacao;
-    @Temporal(TemporalType.DATE)
-    private Date dataaprovacao;
+    private String dataaprovacao;
     
     @ManyToOne(fetch = FetchType.EAGER)
 	@ForeignKey(name = "areadelazerid")
@@ -52,7 +46,7 @@ public class AgendamentoLazer implements Serializable {
         this.id = id;
     }
 
-    public AgendamentoLazer(Long id, Date inicio, Date fim, String evento) {
+    public AgendamentoLazer(Long id, String inicio, String fim, String evento) {
         this.id = id;
         this.inicio = inicio;
         this.fim = fim;
@@ -67,19 +61,19 @@ public class AgendamentoLazer implements Serializable {
         this.id = id;
     }
 
-    public Date getInicio() {
+    public String getInicio() {
         return inicio;
     }
 
-    public void setInicio(Date inicio) {
+    public void setInicio(String inicio) {
         this.inicio = inicio;
     }
 
-    public Date getFim() {
+    public String getFim() {
         return fim;
     }
 
-    public void setFim(Date fim) {
+    public void setFim(String fim) {
         this.fim = fim;
     }
 
@@ -99,11 +93,11 @@ public class AgendamentoLazer implements Serializable {
         this.aprovacao = aprovacao;
     }
 
-    public Date getDataaprovacao() {
+    public String getDataaprovacao() {
         return dataaprovacao;
     }
 
-    public void setDataaprovacao(Date dataaprovacao) {
+    public void setDataaprovacao(String dataaprovacao) {
         this.dataaprovacao = dataaprovacao;
     }
 
