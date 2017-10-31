@@ -28,9 +28,6 @@ public class Lancamento implements Serializable {
     private String descricao;
     private Float valortotal;
     
-    @ManyToOne(fetch = FetchType.EAGER)
-	@ForeignKey(name = "itemlancamentoid")
-    private ItemLancamento itemlancamento = new ItemLancamento();
     
     @ManyToOne(fetch = FetchType.EAGER)
 	@ForeignKey(name = "tipolancamentoid")
