@@ -1,5 +1,7 @@
 package com.comdomino.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.comdomino.dao.DaoImplementacao;
 import com.comdomino.dao.DaoInterface;
 import com.comdomino.model.ItemLancamento;
+import com.comdomino.model.Lancamento;
 import com.google.gson.Gson;
 
 @Controller
@@ -94,6 +97,19 @@ public class ItemLancamentoController extends DaoImplementacao<ItemLancamento>
 		super.deletar(loadObjeto(Long.parseLong(id)));
 		return "";
 	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/ultimoLancamento", method = RequestMethod.GET)
+	@ResponseBody
+	public Integer retornarUltimo()
+			throws Exception {
+		List<ItemLancamento> listaLancamento = super.lista();
+		int maior = listaLancamento.size();
+		System.out.println(maior);
+		return maior;
+	}
+
+	
 
 }
 
