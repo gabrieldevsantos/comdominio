@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.ForeignKey;
 
 
+
 /**
  *
  * @author luciano
@@ -27,8 +28,7 @@ public class Pessoa implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
-    private String cpf;
-    private String cnpj;
+    private String cpfcnpj;
     private String telefone;
     private String login;
     private String senha;
@@ -37,8 +37,15 @@ public class Pessoa implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
 	@ForeignKey(name = "tipopessoaid")
     private TipoPessoa tipoPessoa = new TipoPessoa();
-
-    public Pessoa() {
+    
+    
+    /*
+    @ManyToOne(fetch = FetchType.EAGER)
+	@ForeignKey(name = "condominioid")
+    private Condominio condominio = new Condominio();
+	*/
+    
+	public Pessoa() {
     }
 
     public Pessoa(Long id) {
@@ -67,21 +74,13 @@ public class Pessoa implements Serializable {
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
+    public String getCpfcnpj() {
+		return cpfcnpj;
+	}
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
+	public void setCpfcnpj(String cpfcnpj) {
+		this.cpfcnpj = cpfcnpj;
+	}
 
     public String getTelefone() {
         return telefone;
@@ -130,6 +129,15 @@ public class Pessoa implements Serializable {
     public void setTipoPessoaId(TipoPessoa tipoPessoa) {
         this.tipoPessoa = tipoPessoa;
     }
+    /*
+    public Condominio getCondominio() {
+		return condominio;
+	}
+
+	public void setCondominio(Condominio condominio) {
+		this.condominio = condominio;
+	}
+*/
 
     @Override
     public int hashCode() {

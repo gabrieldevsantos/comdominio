@@ -27,8 +27,6 @@ public class LancamentoFinanceiro implements Serializable {
     private Long id;
     private String dataLancamento;
     private String descricao;
-    private Integer servicoPessoaServicoId;
-    private Integer servicoPessoaPessoaId;
     
     @ManyToOne(fetch = FetchType.EAGER)
 	@ForeignKey(name = "servicoid")
@@ -81,22 +79,6 @@ public class LancamentoFinanceiro implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public Integer getServicoPessoaServicoId() {
-        return servicoPessoaServicoId;
-    }
-
-    public void setServicoPessoaServicoId(Integer servicoPessoaServicoId) {
-        this.servicoPessoaServicoId = servicoPessoaServicoId;
-    }
-
-    public Integer getServicoPessoaPessoaId() {
-        return servicoPessoaPessoaId;
-    }
-
-    public void setServicoPessoaPessoaId(Integer servicoPessoaPessoaId) {
-        this.servicoPessoaPessoaId = servicoPessoaPessoaId;
     }
 
     public Servico getServicoId() {

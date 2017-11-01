@@ -8,8 +8,13 @@ package com.comdomino.model;
 import java.io.Serializable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  *
@@ -20,42 +25,66 @@ public class PessoaCondominio implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
-    protected PessoaCondominioPK pessoaCondominioPK;
-    
-    private String dataInicio;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected Long id;
+  
+
+	private String dataInicio;
     
     private String dataFim;
     
-    @JoinColumn(name = "condominioid", referencedColumnName = "id", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
-    private Condominio condominio;
+    @ManyToOne(fetch = FetchType.EAGER)
+  	@ForeignKey(name = "condominioid")
+    private Condominio condominio = new Condominio();
     
-    @JoinColumn(name = "pessoaid", referencedColumnName = "id", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
-    private Pessoa pessoa;
+    @ManyToOne(fetch = FetchType.EAGER)
+  	@ForeignKey(name = "pessoaid")
+    private Pessoa pessoa = new Pessoa();
 
     public PessoaCondominio() {
     }
 
-    public PessoaCondominio(PessoaCondominioPK pessoaCondominioPK) {
-        this.pessoaCondominioPK = pessoaCondominioPK;
-    }
+    
+    @Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
 
-    public PessoaCondominio(int pessoaId, int condominioId) {
-        this.pessoaCondominioPK = new PessoaCondominioPK(pessoaId, condominioId);
-    }
 
-    public PessoaCondominioPK getPessoaCondominioPK() {
-        return pessoaCondominioPK;
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PessoaCondominio other = (PessoaCondominio) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
 
-    public void setPessoaCondominioPK(PessoaCondominioPK pessoaCondominioPK) {
-        this.pessoaCondominioPK = pessoaCondominioPK;
-    }
 
-    public String getDataInicio() {
+	public String getDataInicio() {
         return dataInicio;
     }
+    
+    
+    public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
     public void setDataInicio(String dataInicio) {
         this.dataInicio = dataInicio;
@@ -85,29 +114,6 @@ public class PessoaCondominio implements Serializable {
         this.pessoa = pessoa;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (pessoaCondominioPK != null ? pessoaCondominioPK.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof PessoaCondominio)) {
-            return false;
-        }
-        PessoaCondominio other = (PessoaCondominio) object;
-        if ((this.pessoaCondominioPK == null && other.pessoaCondominioPK != null) || (this.pessoaCondominioPK != null && !this.pessoaCondominioPK.equals(other.pessoaCondominioPK))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "com.comdomino.model.PessoaCondominio[ pessoaCondominioPK=" + pessoaCondominioPK + " ]";
-    }
-    
+   
+   
 }
