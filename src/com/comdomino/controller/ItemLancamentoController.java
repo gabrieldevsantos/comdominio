@@ -97,20 +97,6 @@ public class ItemLancamentoController extends DaoImplementacao<ItemLancamento>
 		super.deletar(loadObjeto(Long.parseLong(id)));
 		return "";
 	}
-	
-	@CrossOrigin
-	@RequestMapping(value = "/ultimoLancamento", method = RequestMethod.GET)
-	@ResponseBody
-	public Integer retornarUltimo()
-			throws Exception {
-		List<ItemLancamento> listaLancamento = super.lista();
-		int maior = listaLancamento.size();
-		System.out.println(maior);
-		return maior;
-	}
-
-	
-
 }
 
 

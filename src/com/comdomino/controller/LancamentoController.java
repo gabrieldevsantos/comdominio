@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.comdomino.dao.DaoImplementacao;
+import com.comdomino.model.ItemLancamento;
 import com.comdomino.model.Lancamento;
 import com.comdomino.dao.DaoInterface;
 import com.google.gson.Gson;
@@ -93,6 +94,20 @@ public class LancamentoController extends DaoImplementacao<Lancamento>
 			throws Exception {
 		super.deletar(loadObjeto(Long.parseLong(id)));
 		return "";
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/last", method = RequestMethod.GET)
+	@ResponseBody
+	public String retornarUltimo()
+			throws Exception {
+		Lancamento objeto = super.lista().get(super.lista().size()-1);;
+		if (objeto == null) {
+			return "{}";
+		}
+		String json = new Gson().toJson(objeto); 
+		System.out.println(json);
+		return json;
 	}
 
 }
