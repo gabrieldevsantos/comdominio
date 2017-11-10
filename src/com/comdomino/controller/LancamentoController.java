@@ -1,5 +1,8 @@
 package com.comdomino.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -109,8 +112,26 @@ public class LancamentoController extends DaoImplementacao<Lancamento>
 		System.out.println(json);
 		return json;
 	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "/lastfive", method = RequestMethod.GET)
+	@ResponseBody
+	public String ultimosCinco()
+			throws Exception {
+		List<Lancamento> lastfive = new ArrayList<Lancamento>();
+		List<Lancamento> list = new ArrayList<Lancamento>();
+		list = super.lista();
+
+		for(int i = (list.size()-1); i > (list.size()-6);i--){
+			lastfive.add(list.get(i));
+		}
+		String json = new Gson().toJson(lastfive);
+		System.out.println(json);
+		return json;
+	}
 
 }
+
 
 
 
