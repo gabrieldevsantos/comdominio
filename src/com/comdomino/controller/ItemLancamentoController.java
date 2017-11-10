@@ -1,5 +1,6 @@
 package com.comdomino.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,11 @@ import com.comdomino.dao.DaoInterface;
 import com.comdomino.model.ItemLancamento;
 import com.comdomino.model.Lancamento;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
+import com.lowagie.text.pdf.hyphenation.TernaryTree.Iterator;
 
 @Controller
 @RequestMapping(value = "/itemlancamento")
@@ -29,7 +35,7 @@ public class ItemLancamentoController extends DaoImplementacao<ItemLancamento>
 	
 	@CrossOrigin
 	@SuppressWarnings("rawtypes")
-	@RequestMapping(value = "post", method = RequestMethod.POST)
+	@RequestMapping(value = "/post", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity salvar(@RequestBody String jsonPost)
 			throws Exception{
@@ -41,8 +47,35 @@ public class ItemLancamentoController extends DaoImplementacao<ItemLancamento>
 	}
 	
 	@CrossOrigin
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@RequestMapping(value = "/postmany", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity salvarLista(@RequestBody String jsonPost)
+			throws Exception{
+		/*List<ItemLancamento> objeto = (List<ItemLancamento>) new Gson().fromJson(jsonPost,
+				List.class);
+		System.out.println(jsonPost);
+		for (ItemLancamento item : objeto) {
+			super.salvar(item);
+		}
+		*/
+		
+//		List<ItemLancamento> list = new ArrayList<ItemLancamento>();
+		List<ItemLancamento> list =  (ArrayList<ItemLancamento>)new Gson().fromJson(jsonPost,
+                new TypeToken<ArrayList<ItemLancamento>>() {
+                }.getType());
+		
+		for (ItemLancamento item : list) {
+			System.out.println(item);
+			super.salvar(item);
+		}
+		
+		return new ResponseEntity(HttpStatus.CREATED);
+	}
+	
+	@CrossOrigin
 	@SuppressWarnings("rawtypes")
-	@RequestMapping(value = "put", method = RequestMethod.PUT)
+	@RequestMapping(value = "/put", method = RequestMethod.PUT)
 	@ResponseBody
 	public ResponseEntity atualizar(@RequestBody String jsonPut)
 			throws Exception{
@@ -54,7 +87,7 @@ public class ItemLancamentoController extends DaoImplementacao<ItemLancamento>
 	
 	@CrossOrigin
 	@SuppressWarnings("rawtypes")
-	@RequestMapping(value = "postorput", method = RequestMethod.POST)
+	@RequestMapping(value = "/postorput", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity salvarOuAtualizar(@RequestBody String jsonPost)
 			throws Exception{
