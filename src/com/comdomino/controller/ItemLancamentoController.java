@@ -52,15 +52,6 @@ public class ItemLancamentoController extends DaoImplementacao<ItemLancamento>
 	@ResponseBody
 	public ResponseEntity salvarLista(@RequestBody String jsonPost)
 			throws Exception{
-		/*List<ItemLancamento> objeto = (List<ItemLancamento>) new Gson().fromJson(jsonPost,
-				List.class);
-		System.out.println(jsonPost);
-		for (ItemLancamento item : objeto) {
-			super.salvar(item);
-		}
-		*/
-		
-//		List<ItemLancamento> list = new ArrayList<ItemLancamento>();
 		List<ItemLancamento> list =  (ArrayList<ItemLancamento>)new Gson().fromJson(jsonPost,
                 new TypeToken<ArrayList<ItemLancamento>>() {
                 }.getType());
@@ -106,6 +97,52 @@ public class ItemLancamentoController extends DaoImplementacao<ItemLancamento>
 		String json = new Gson().toJson(super.lista());
 		System.out.println(json);
 		return json;
+	}
+	/******************************
+	 * EXEMPLO DE QUERY NATIVA
+	 * ***************************/
+	/*
+	String sql = "SELECT * FROM freelancer where login = '"+objeto.getId()+"'";
+	@SuppressWarnings("unchecked")
+	List<Pessoa> results = this.sessionFactory.getCurrentSession().createSQLQuery(sql).addEntity("freelancer", Pessoa.class).list();
+			
+	//imprime lista de resultados
+	for (Object item : results) {
+		System.out.println(item.toString());
+	}
+	//verifica se encontrou resultados
+	if(results.isEmpty()){
+		super.salvarOuAtualizar(objeto);
+		return new ResponseEntity(HttpStatus.CREATED);
+	}else{
+		return new ResponseEntity(HttpStatus.EXPECTATION_FAILED);
+	}	
+	*/
+	
+	@CrossOrigin
+	@RequestMapping(value = "lancamento/{id}", method = RequestMethod.GET)
+	public @ResponseBody
+	String buscarPorLancamento(@PathVariable("id") String id)
+			throws Exception {
+		
+		String sql = "SELECT * FROM itemlancamento where lancamento_id = '"+id+"'";
+		@SuppressWarnings("unchecked")
+		List<ItemLancamento> results = this.sessionFactory.getCurrentSession().createSQLQuery(sql).addEntity("freelancer", ItemLancamento.class).list();
+		
+		//imprime lista de resultados
+		for (Object item : results) {
+			System.out.println(item.toString());
+		}
+		//verifica se encontrou resultados
+		if(!results.isEmpty()){
+			String json = new Gson().toJson(results);
+			return json;
+		}else{
+			return new Gson().toJson("[{}]");
+		}	
+		
+		
+		
 	}
 
 	@CrossOrigin
