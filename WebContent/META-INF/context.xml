@@ -20,7 +20,8 @@
                 antiResourceLocking="false"
 				username="postgres" 
 				password="admin" 
-				url="jdbc:postgresql://54.147.131.163:5432/angularjs_spring_restful?autoReconnect=true"/>
+				url="jdbc:postgresql://52.203.108.230:5432/angularjs_spring_restful?autoReconnect=true"/>
+				<!--  url="jdbc:postgresql://52.203.108.230:5432/angularjs_spring_restful?autoReconnect=true"-->
 				
 				
 	<!-- http://tomee.apache.org/datasource-config.html -->	
